@@ -73,7 +73,7 @@ public class ESBookInit {
                         .startObject("_source").field("excludes", excludes).endObject()
                         .startObject("properties")
                             .startObject("title").field("type", "text").field("analyzer", "ik_max_word").field("index", "analyzed").field("search_analyzer", "ik_max_word").endObject() //分词查询
-                            .startObject("price").field("type", "text").endObject()
+                            .startObject("price").field("type","long").endObject()
                         .endObject()
                     .endObject()
                     .endObject();
