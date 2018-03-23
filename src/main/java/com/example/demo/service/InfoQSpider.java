@@ -17,9 +17,9 @@ import java.sql.Timestamp;
  */
 @Service
 public class InfoQSpider {
-    private static String BASIC = SourceConstant.InfoQ.url;
-    private static String columns = SourceConstant.InfoQ.columns;
-    private static String types = SourceConstant.InfoQ.types;
+    private final static String BASIC = SourceConstant.InfoQ.url;
+    private final static String COLUMNS = SourceConstant.InfoQ.columns;
+    private final static String TYPES = SourceConstant.InfoQ.types;
 
     @Autowired
     private ArticleDao articleDao;
@@ -29,8 +29,8 @@ public class InfoQSpider {
     }
 
     public void spider(int from) {
-        String[] columnArray = columns.split(",");
-        String[] typeArray = types.split(",");
+        String[] columnArray = COLUMNS.split(",");
+        String[] typeArray = TYPES.split(",");
         for (String column : columnArray) {
             for (String type : typeArray) {
                 String url = BASIC.replace("{column}", column).replace("{type}", type).replace("{from}", String.valueOf(from));

@@ -37,19 +37,28 @@
         pageNum: 0,
         pageSize: 50,
         keyword: "",
-        channel:""
+        channel: ""
     }
 
-    $("#search").click(function(){
+    function find() {
         search.pageNum = $("input[name=pageNum]").val();
         search.keyword = $("input[name=keyword]").val();
         search.channel = $("input[name=channel]").val();
         list(search);
-    });
+    }
 
 
     $(function () {
         list(search);
+        $("#search").click(function () {
+            find();
+        });
+
+        $(document).keyup(function (event) {
+            if (event.keyCode == 13) {
+                find();
+            }
+        });
     });
 
     function list(obj) {
