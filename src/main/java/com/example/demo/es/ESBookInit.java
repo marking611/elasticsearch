@@ -39,7 +39,11 @@ public class ESBookInit {
 
     @PostConstruct
     private void init() {
-        resetIndex();
+        try {
+            resetIndex();
+        } catch (Exception e) {
+            LOGGER.error("ElasticSearch服务异常",e);
+        }
     }
 
     public void resetIndex() {

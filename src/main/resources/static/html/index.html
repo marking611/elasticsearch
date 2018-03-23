@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章</title>
+</head>
+<body>
+<div style="width: 100%">
+    总记录数:<span id="total"></span>
+    总页数:<span id="pages"></span>
+    <form id="searchForm" method="post">
+        <input type="text" name="keyword" placeholder="请输入关键字">
+        <input type="number" name="pageNum" placeholder="请输入页码">
+        <input type="text" name="channel" placeholder="请输入栏目">
+        <input type="button" id="search" value="搜索">
+    </form>
+    <table id="article" border="1" cellspacing="0" style="text-align: center;">
+        <thead>
+        <tr>
+            <th width="5%">序号</th>
+            <th width="45%">标题</th>
+            <th width="10%">来源</th>
+            <th width="10%">栏目</th>
+            <th width="10%">发布时间</th>
+            <th width="10%">创建时间</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    var search = {
+        pageNum: 0,
+        pageSize: 50,
+        keyword: "",
+        channel:""
+    }
+
+    $("#search").click(function(){
+        search.pageNum = $("input[name=pageNum]").val();
+        search.keyword = $("input[name=keyword]").val();
+        search.channel = $("input[name=channel]").val();
+        list(search);
+    });
+
+
+    $(function () {
+        list(search);
+    });
+
+    function list(obj) {
+        $.ajax({
+            url: "/elasticsearch/article/list",
+            data: obj,
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                var total = data.totalElements;
+                var pages = data.totalPages;
+                $("#total").text(total)
+                $("#pages").text(pages);
+                var content = data.content;
+                var body = '<tr><td>{index}</td><td style="text-align: left"><a href="{url}" target="_blank">{title}</a></td><td>{source}</td><td>{channel}</td><td>{publishTime}</td><td>{createTime}</td></tr>';
+                var html = "";
+                for (var i = 0; i < content.length; i++) {
+                    var realBody = body.replace("{index}", (i + 1))
+                            .replace("{title}", content[i].title)
+                            .replace("{url}", content[i].url)
+                            .replace("{source}", content[i].source)
+                            .replace("{channel}", content[i].channel)
+                            .replace("{publishTime}", content[i].publishTimeStr)
+                            .replace("{createTime}", content[i].createTimeStr);
+                    html += realBody;
+                }
+                $("#article tbody").html(html);
+            }
+        });
+    }
+</script>
+</html>

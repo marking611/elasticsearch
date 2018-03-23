@@ -55,6 +55,13 @@
 			<version>2.4</version>
 			<classifier>jdk15</classifier>
 		</dependency>
+
+		<!--引入jsoup-->
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.11.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
