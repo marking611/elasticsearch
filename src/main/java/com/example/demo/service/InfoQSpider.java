@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.constant.SourceConstant;
 import com.example.demo.dao.ArticleDao;
 import com.example.demo.entity.Article;
+import com.example.demo.thread.ThreadPool;
 import com.example.demo.utils.SpiderUtil;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -34,7 +35,8 @@ public class InfoQSpider {
         for (String column : columnArray) {
             for (String type : typeArray) {
                 String url = BASIC.replace("{column}", column).replace("{type}", type).replace("{from}", String.valueOf(from));
-                spider(url, column, type);
+                ThreadPool.getInstance().getPool().execute(() -> spider(url, column, type));
+                //spider(url, column, type);
             }
         }
     }
@@ -80,4 +82,5 @@ public class InfoQSpider {
         article.setCreateTime(new Timestamp(System.currentTimeMillis()));
         articleDao.saveAndFlush(article);
     }
+
 }

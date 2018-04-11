@@ -4,7 +4,7 @@ package com.example.demo.constant;
  * Created by makai on 2018/3/20.
  */
 public enum SourceConstant {
-    InfoQ("InfoQ", "InfoQ", "http://www.infoq.com/cn/{column}/{type}/{from}", "java,architecture-design,", "articles,");
+    InfoQ("InfoQ", "InfoQ", "http://www.infoq.com/cn/{column}/{type}/{from}", "java,architecture-design,architecture,", "articles,");
     public final String code;
     public final String name;
     public final String url;
