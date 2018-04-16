@@ -15,7 +15,7 @@ public class SpiderTask {
     @Autowired
     private InfoQSpider infoQSpider;
 
-    @Scheduled(cron = "0 0 10 * * *")
+    @Scheduled(cron = "0 0 18 * * *")
     public void infoQSpider() {
         infoQSpider.spider();
     }

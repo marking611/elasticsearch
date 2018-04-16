@@ -13,15 +13,15 @@ public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column
+    @Column(length = 100)
     private String source; //来源
-    @Column
+    @Column(length = 100)
     private String channel;
-    @Column
+    @Column(length = 100)
     private String type; //类型
-    @Column
+    @Column(length = 300)
     private String title; //标题
-    @Column(length = 1000)
+    @Column(columnDefinition = "text")
     private String description;
     @Column(length = 1000)
     private String url;
