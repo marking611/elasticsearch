@@ -1,0 +1,344 @@
+@charset "UTF-8";
+.mobile-nav-container {
+  position: absolute;
+  top: 44px;
+  display: table;
+  width: 100%;
+  height: 50px;
+  padding: 0;
+  table-layout: fixed;
+  border-top: 0;
+  border-bottom: 0;
+  -webkit-touch-callout: none;
+  z-index: 10;
+  background: #eee; }
+
+.mobile-nav {
+  margin: 0 0 0 30px;
+  white-space: nowrap;
+  font-size: 0;
+  overflow: hidden;
+  overflow-x: auto; }
+
+.mobile-nav::-webkit-scrollbar {
+  height: 0; }
+
+.mobile-nav a {
+  display: inline-block;
+  padding: 0 10px;
+  line-height: 40px;
+  font-size: 14px;
+  color: gray;
+  text-align: center; }
+
+.mobile-nav a:last-child {
+  margin-right: 20px; }
+
+.mobile-nav a.active {
+  border-bottom: 2px solid red; }
+
+.mobile-nav-container .search {
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 40px;
+  background: #eee; }
+
+.mobile-nav-container .channel {
+  position: absolute;
+  right: -1px;
+  top: 0;
+  line-height: 40px;
+  background: #eee; }
+
+.list1 {
+  padding: 10px; }
+
+.mui-table-view-cell:after {
+  left: 0; }
+
+.list-container li:last-child {
+  border-bottom: 0; }
+
+.list1-img-container {
+  float: left;
+  height: 3.54133rem;
+  overflow: hidden;
+  margin-right: 10px; }
+
+.list1-img-container img {
+  width: 4.69333rem;
+  height: 3.54133rem; }
+
+.list-title {
+  font-size: 14px;
+  color: #000;
+  overflow: hidden; }
+
+.info {
+  overflow: hidden; }
+
+.info .label-style {
+  font-size: 12px;
+  padding: 0 3px 0 0;
+  overflow: hidden;
+  color: #7d7d7d; }
+
+.list1 .info .label-top {
+  color: red;
+  border: 0.5px solid #7d7d7d;
+  border-radius: 2px; }
+
+.list1-live-img-container {
+  position: relative; }
+
+.list1-live-img-container > img {
+  width: 100%; }
+
+.list1-live-img-container .label-state {
+  position: absolute;
+  background: #df0101;
+  width: 58.5px;
+  height: 15px; }
+
+.list1-live-img-container .label-state img {
+  height: 0.64rem; }
+
+.list1-live-img-container .label-state p {
+  margin-left: 0.02133rem; }
+
+/*三图样式*/
+.photo {
+  display: block;
+  padding: 10px; }
+
+.photo span.title {
+  display: block;
+  margin-bottom: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #262626; }
+
+.photo .thumb {
+  width: 100%;
+  height: 3.49867rem; }
+
+.photo img {
+  width: 4.69333rem;
+  height: 3.49867rem;
+  border-radius: 2px; }
+
+.photo img:last-child {
+  margin-right: 0; }
+
+.photo .info {
+  line-height: 30px; }
+
+.photo .info .label-style {
+  font-size: 12px;
+  color: #7d7d7d; }
+
+/*视频样式*/
+.full .list-title {
+  margin-bottom: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.full .label-style {
+  font-size: 12px;
+  color: #7d7d7d; }
+
+.full .thumb {
+  width: 100%; }
+
+.full .w4 {
+  height: 0;
+  padding-bottom: 75%; }
+
+.full .w16 {
+  height: 8.96rem; }
+
+.full .thumb img {
+  width: 100%;
+  height: 100%; }
+
+.video .video-title {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #262626; }
+
+.video .info {
+  line-height: 30px; }
+
+.video .info .label-style {
+  font-size: 12px;
+  color: #7d7d7d; }
+
+.video .thumb .list-player {
+  position: absolute;
+  display: block;
+  width: 55px;
+  height: 55px;
+  background: url(../image/play.png) center center no-repeat;
+  background-size: 100%;
+  left: 50%;
+  top: 50%;
+  margin-left: -27.5px;
+  margin-top: -27.5px; }
+
+/*纯文本样式*/
+.text {
+  display: block;
+  padding: 10px; }
+
+.text .main-title {
+  display: block;
+  font-size: 14px;
+  color: #262626; }
+
+/*图集样式*/
+.group .main-title {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #262626; }
+
+.group .info {
+  line-height: 30px; }
+
+.group .info .label-style {
+  font-size: 12px;
+  color: #7d7d7d; }
+
+.group .thumb {
+  position: relative; }
+
+.group .thumb > img {
+  width: 100%;
+  height: 100%; }
+
+.group .thumb .list-pics-label {
+  vertical-align: middle;
+  position: absolute;
+  width: 50px;
+  background: rgba(0, 0, 0, 0.3);
+  top: 0;
+  padding: 3px;
+  border-radius: 2px; }
+
+.group .thumb .list-pics-label img {
+  width: 35px; }
+
+.group .thumb .list-pics-label .list-pics-icon {
+  background: url(../image/pic.png) center center no-repeat;
+  background-size: contain;
+  text-indent: 26px;
+  width: 25px;
+  height: 18px;
+  display: block;
+  line-height: 20px;
+  font-size: 12px;
+  color: #fff; }
+
+/*直播*/
+.live span.tag {
+  font-size: 16px;
+  padding-right: 10px; }
+
+.live .list-live-title {
+  font-size: 14px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.live {
+  display: block;
+  background-color: #f8f8f8; }
+
+.live .main-title {
+  font-size: 14px;
+  line-height: 30px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; }
+
+.live li {
+  float: left; }
+
+.live img {
+  width: 100%;
+  height: 100%; }
+
+.live p {
+  overflow: hidden; }
+
+.live1 li {
+  width: 100%;
+  overflow: hidden; }
+
+.live3 li {
+  width: 4.69333rem;
+  height: 3.49867rem;
+  margin-right: 0.49067rem;
+  overflow: hidden; }
+
+.live2 li, .live4 li {
+  width: 7.25333rem;
+  height: 5.12rem;
+  overflow: hidden; }
+
+.live3 li:last-child {
+  margin: 0; }
+
+.live2 li {
+  margin: 0 2px 0 0; }
+
+.live2 li:last-child {
+  margin: 0; }
+
+.live4 li {
+  margin: 0 2px 1px 0; }
+
+.live4 li:nth-child(even) {
+  margin: 0 0 1px; }
+
+.live .thumb {
+  position: relative; }
+
+.live .thumb .label-state {
+  position: absolute;
+  width: 58.5px;
+  height: 15px;
+  left: 0;
+  top: 0; }
+
+.icon-play-announce {
+  background: url(../image/icon_review.png) left no-repeat;
+  background-size: 100% 100%; }
+
+.icon-play-review {
+  background: url(../image/icon_preview.png) left no-repeat;
+  background-size: 100% 100%; }
+
+.icon-play-liveing {
+  background: url(../image/icon_live.png) left no-repeat;
+  background-size: 100% 100%; }
+
+.main {
+  top: 44px; }
+
+.mui-bar-nav ~ .mui-content {
+  padding: 0; }
+
+.mui-bar-nav ~ .mui-content .mui-pull-top-pocket {
+  top: 0; }

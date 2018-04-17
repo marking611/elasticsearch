@@ -1,0 +1,105 @@
+.article-content {
+  font-family: "Microsoft YaHei" !important;
+  font-size: 0.64rem !important;
+  line-height: 1.06667rem !important;
+  word-wrap: break-word !important;
+  word-break: break-all !important;
+  color: #222;
+  overflow-x: hidden; }
+
+.article-content p {
+  font-family: "Microsoft YaHei" !important;
+  font-size: 0.64rem !important;
+  margin-bottom: 0.32rem !important;
+  line-height: 1.06667rem !important;
+  word-wrap: break-word !important;
+  word-break: break-all !important;
+  color: #222; }
+
+.article-content strong,
+.article-content span,
+.article-content em,
+.article-content a,
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+  font-family: "Microsoft YaHei" !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  word-wrap: break-word !important;
+  word-break: break-all !important; }
+
+.article-content.font-smaller {
+  font-size: 0.46933rem !important;
+  line-height: 0.896rem !important; }
+
+.article-content.font-small {
+  font-size: 0.55467rem !important;
+  line-height: 0.98133rem !important; }
+
+.article-content.font-normal {
+  font-size: 0.64rem !important;
+  line-height: 1.06667rem !important; }
+
+.article-content.font-large {
+  font-size: 0.72533rem !important;
+  line-height: 1.152rem !important; }
+
+.article-content.font-larger {
+  font-size: 0.81067rem !important;
+  line-height: 1.23733rem !important; }
+
+.article-content.font-largest {
+  font-size: 0.896rem !important;
+  line-height: 1.10933rem !important; }
+
+.article-content.font-smaller p {
+  font-size: 0.46933rem !important;
+  line-height: 0.896rem !important; }
+
+.article-content.font-small p {
+  font-size: 0.55467rem !important;
+  line-height: 0.98133rem !important; }
+
+.article-content.font-normal p {
+  font-size: 0.64rem !important;
+  line-height: 1.06667rem !important; }
+
+.article-content.font-large p {
+  font-size: 0.72533rem !important;
+  line-height: 1.152rem !important; }
+
+.article-content.font-larger p {
+  font-size: 0.81067rem !important;
+  line-height: 1.23733rem !important; }
+
+.article-content.font-largest p {
+  font-size: 0.896rem !important;
+  line-height: 1.10933rem !important; }
+
+.article-content img {
+  /* display: block;
+	width: 100%!important; */
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  max-width: 100% !important; }
+
+.article-content video,
+.article-content embed {
+  width: 100% !important;
+  height: 8.29227rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  max-width: 100% !important;
+  background: transparent url("../image/16.9@2x.png") 50% 50% no-repeat;
+  object-fit: fill;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
