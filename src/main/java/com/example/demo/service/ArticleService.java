@@ -17,9 +17,9 @@ public class ArticleService {
     private ArticleDao articleDao;
 
     public Page<Article> list(int pageNum, int pageSize, String keyword, String channel) {
-        pageNum = pageNum >= 0 ? pageNum : 0;
+        pageNum = pageNum >= 1 ? pageNum-1 : 0;
         Pageable pageable = PageRequest.of(pageNum, pageSize);
-        Page<Article> page = articleDao.findByTitleContainingAndChannelContainingOrderByCreateTimeDesc(keyword, channel, pageable);
+        Page<Article> page = articleDao.findByTitleContainingAndChannelContainingOrderByPublishTimeDesc(keyword, channel, pageable);
         return page;
     }
 }

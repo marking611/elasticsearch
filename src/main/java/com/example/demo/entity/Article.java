@@ -107,10 +107,4 @@ public class Article {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return simpleDateFormat.format(this.createTime);
     }
-
-    public String getPublishTimeStr(){
-        if (this.publishTime == null) return null;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return simpleDateFormat.format(this.publishTime);
-    }
 }

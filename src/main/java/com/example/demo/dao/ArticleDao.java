@@ -11,5 +11,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ArticleDao extends JpaRepository<Article,Integer> {
     int countByTitleAndUrl(String title,String url);
 
-    Page<Article> findByTitleContainingAndChannelContainingOrderByCreateTimeDesc(String title,String channel, Pageable pageable);
+    Page<Article> findByTitleContainingAndChannelContainingOrderByPublishTimeDesc(String title,String channel, Pageable pageable);
 }

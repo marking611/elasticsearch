@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by makai on 2018/3/19.
@@ -47,6 +50,7 @@ public class InfoQSpider {
         Element content = document.selectFirst("#content");
         Elements elements1 = content.select(".news_type1");
         elements1.forEach(element -> {
+
             Element p = element.selectFirst("p");
             Element a = p.selectFirst("a");
             String href = a.attr("href");
@@ -54,7 +58,8 @@ public class InfoQSpider {
             String description = p.text();
             String complete = SpiderUtil.getCompleteURL(url, href);
             if (complete == null) return;
-            save(title, complete, description, column, type);
+            String publishTime = getPublishTime(element);
+            save(title, complete, description, column, type, publishTime);
         });
 
         Elements elements2 = content.select(".news_type2");
@@ -65,11 +70,32 @@ public class InfoQSpider {
             String description = element.selectFirst(".txt p").text();
             String complete = SpiderUtil.getCompleteURL(url, href);
             if (complete == null) return;
-            save(title, complete, description, column, type);
+            String publishTime = getPublishTime(element);
+            save(title, complete, description, column, type, publishTime);
         });
     }
 
-    private void save(String title, String url, String description, String column, String type) {
+    private String getPublishTime(Element element) {
+        String baseInfo = element.selectFirst(".author").text();
+        String publishTime = baseInfo.substring(baseInfo.indexOf("发布于"), baseInfo.lastIndexOf("日") + 1);
+        publishTime = publishTime.replace("发布于", "");
+        publishTime = handlePublishTime(publishTime);
+        return publishTime;
+    }
+
+    private String handlePublishTime(String publishTime) {
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy年MM月dd日");
+        try {
+            Date date = sdf1.parse(publishTime);
+            SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+            publishTime = sdf2.format(date);
+        } catch (ParseException e) {
+            return publishTime;
+        }
+        return publishTime;
+    }
+
+    private void save(String title, String url, String description, String column, String type, String publishTime) {
         int total = articleDao.countByTitleAndUrl(title, url);
         if (total > 0) return;
         Article article = new Article();
@@ -80,6 +106,7 @@ public class InfoQSpider {
         article.setChannel(column);
         article.setType(type);
         article.setCreateTime(new Timestamp(System.currentTimeMillis()));
+        article.setPublishTime(publishTime);
         articleDao.saveAndFlush(article);
     }
 

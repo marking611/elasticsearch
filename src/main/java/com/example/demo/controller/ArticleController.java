@@ -30,7 +30,7 @@ public class ArticleController {
      * @return
      */
     @RequestMapping("/list")
-    public String list(@RequestParam(required = false, defaultValue = "0") int pageNum,
+    public String list(@RequestParam(required = false, defaultValue = "1") int pageNum,
                        @RequestParam(required = false, defaultValue = "10") int pageSize,
                        String keyword, String channel) {
         Page<Article> page = articleService.list(pageNum, pageSize, keyword, channel);
